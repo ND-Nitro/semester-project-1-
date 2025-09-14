@@ -1,198 +1,265 @@
 * {
   box-sizing: border-box;
 }
-html,
-body {
-  height: 100%;
-}
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111;
   background: #fff;
-  color: var(--text);
-  line-height: 1.55;
 }
-img {
-  max-width: 100%;
-  display: block;
-}
-:where(h1, h2, h3, h4, p, ul) {
-  margin: 0;
-}
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-.skip-link {
-  position: absolute;
-  left: -9999px;
-}
-.skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  background: #fff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
-.container {
-  max-width: var(--container);
+.wrap {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 var(--s4);
+  padding: 0 16px;
 }
 
 /* ===== Top bar ===== */
 .topbar {
-  background: var(--yellow);
+  background: #ffd60a;
   border-bottom: 1px solid #e0b800;
 }
-.topbar__inner {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+.topbar .wrap {
+  height: 56px;
+  display: flex;
   align-items: center;
-  gap: var(--s4);
-  height: 64px;
+  gap: 16px;
 }
-
-/* Nav left */
 .topnav {
   display: flex;
-  gap: 1.25rem;
-  align-items: center;
+  gap: 20px;
 }
-.topnav__link {
-  text-decoration: none;
+.topnav a {
   color: #000;
+  text-decoration: none;
   font-weight: 800;
-  letter-spacing: 0.01em;
-}
-.topnav__link:hover,
-.topnav__link:focus-visible {
-  opacity: 0.9;
-  outline: none;
 }
 
-/* Search integrated button INSIDE the input */
+/* Search (ikon inni feltet) */
 .search {
-  position: relative;
-  justify-self: center; /* så den holder seg i midten i topbaren */
-  width: min(560px, 60vw);
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
-
+.search-box {
+  position: relative;
+  width: min(480px, 56vw);
+}
 .search input {
   width: 100%;
-  padding: 0.6rem 2.5rem 0.6rem 0.9rem; /* plass til ikonet til høyre */
-  border-radius: 999px;
-  border: 1px solid #d6c200; /* matcher den gule topbaren */
-  background: rgba(255, 255, 255, 0.75);
+  padding: 8px 38px 8px 12px;
+  border-radius: 9999px;
+  border: 1px solid #d6c200;
+  background: rgba(255, 255, 255, 0.8);
   color: #111;
-  outline: none;
 }
-.search input::placeholder {
-  color: #6b6e73;
-}
-.search input:focus {
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
-}
-
-/* Knappen ligger oppå inputen og ser “innebygd” ut */
-.search__btn {
+.search-btn {
   position: absolute;
   right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  width: 32px;
+  height: 32px;
   border: 0;
-  background: transparent; /* ingen egen pille */
-  color: #111;
-  border-radius: 999px; /* god treffflate */
+  background: transparent;
   cursor: pointer;
 }
-.search__btn:hover,
-.search__btn:focus-visible {
-  background: rgba(0, 0, 0, 0.06); /* subtil hover/fokus inni feltet */
-  outline: none;
-}
 
-/* Social right */
+/* Social (små, sorte ikoner) */
 .social {
   display: flex;
-  gap: 0.5rem;
+  gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
-  justify-self: end;
 }
-.social__link {
+.social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid #d6c200;
-  border-radius: 999px;
-  background: #fff;
-  color: #111;
+  width: 48px;
+  height: 48px;
+  color: #000;
+  text-decoration: none;
 }
-.social__link:hover,
-.social__link:focus-visible {
-  outline: none;
-  box-shadow: var(--shadow);
+.icon {
+  width: 30px;
+  height: 30px;
+  display: block;
 }
-.social__link svg {
-  width: 18px;
-  height: 18px;
+.insta {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+.insta .dot {
   fill: currentColor;
+  stroke: none;
 }
-
-/* Hero-lag */
+.fill {
+  fill: currentColor;
+  stroke: none;
+}
+.sosial a:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+/* ===== Hero ===== */
 .hero {
   position: relative;
-  overflow: hidden;
 }
-.hero__media {
+.hero-img {
   width: 100%;
   height: 520px;
   object-fit: cover;
   display: block;
 }
-.hero__overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent 60%);
-  z-index: 1;
-}
-.hero__content {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: end;
-  color: #fff;
-  padding: 2rem;
-  z-index: 2;
-}
-
-/* LOGO oppå bildet */
 .hero-logo {
   position: absolute;
-  left: 20px;
-  top: 20px;
-  z-index: 2; /* over overlay */
-  display: inline-block;
+  left: 16px;
+  top: 16px;
 }
 .hero-logo img {
+  height: 250px;
+  width: auto;
   display: block;
-  width: clamp(120px, 12vw, 200px); /* responsiv bredde */
-  height: auto;
-  filter: drop-shadow(0 2px 6px #ffff); /* lesbarhet på lyst/mørkt */
+  filter: brightness(0) invert(1);
+}
+.hero-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 14vh;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+  color: #fff;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1;
+  white-space: normal;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* ===== Quick links ===== */
+.quick {
+  background: #f6efc4;
+  border-top: 1px solid #f0e08c;
+  border-bottom: 1px solid #f0e08c;
+}
+.quick-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: 12px 0;
+}
+.pill {
+  display: block;
+  text-align: center;
+  padding: 12px 0;
+  background: #ffd60a;
+  color: #000;
+  text-decoration: none;
+  border-radius: 9999px;
+}
+
+/* ===== Cards (3 stk) ===== */
+.cards {
+  background: #f6efc4;
+  padding: 48px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.card h3 {
+  text-align: center;
+  margin: 0 0 8px;
+}
+.card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== Visit ===== */
+.visit {
+  background: #ffd60a;
+  padding: 24px 0;
+  border-top: 1px solid #e0b800;
+  border-bottom: 1px solid #e0b800;
+}
+.visit-inner {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+.visit-link {
+  font-weight: 800;
+  color: #000;
+}
+.visit-info p {
+  margin: 0.35rem 0;
+}
+.hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid #d6c200;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid #f3e37a;
+}
+.hours li:first-child {
+  border-top: 0;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #ffd60a;
+  padding: 24px 0;
+  border-top: 1px solid #e0b800;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-link {
+  color: #000;
+  text-decoration: none;
+  margin-left: 12px;
+}
+
+/* ===== Enkle responsive tweaks ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-title {
+    font-size: 42px;
+    bottom: 12vh;
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-title {
+    font-size: 28px;
+    bottom: 10vh;
+  }
 }
