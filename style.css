@@ -1,0 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.55;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+:where(h1, h2, h3, h4, p, ul) {
+  margin: 0;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+}
+
+/* ===== Top bar ===== */
+.topbar {
+  background: var(--yellow);
+  border-bottom: 1px solid #e0b800;
+}
+.topbar__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s4);
+  height: 64px;
+}
+
+/* Nav left */
+.topnav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.topnav__link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+.topnav__link:hover,
+.topnav__link:focus-visible {
+  opacity: 0.9;
+  outline: none;
+}
+
+/* Search integrated button INSIDE the input */
+.search {
+  position: relative;
+  justify-self: center; /* så den holder seg i midten i topbaren */
+  width: min(560px, 60vw);
+}
+
+.search input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 0.9rem; /* plass til ikonet til høyre */
+  border-radius: 999px;
+  border: 1px solid #d6c200; /* matcher den gule topbaren */
+  background: rgba(255, 255, 255, 0.75);
+  color: #111;
+  outline: none;
+}
+.search input::placeholder {
+  color: #6b6e73;
+}
+.search input:focus {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Knappen ligger oppå inputen og ser “innebygd” ut */
+.search__btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent; /* ingen egen pille */
+  color: #111;
+  border-radius: 999px; /* god treffflate */
+  cursor: pointer;
+}
+.search__btn:hover,
+.search__btn:focus-visible {
+  background: rgba(0, 0, 0, 0.06); /* subtil hover/fokus inni feltet */
+  outline: none;
+}
+
+/* Social right */
+.social {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-self: end;
+}
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d6c200;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+}
+.social__link:hover,
+.social__link:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow);
+}
+.social__link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Hero-lag */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero__media {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55), transparent 60%);
+  z-index: 1;
+}
+.hero__content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: end;
+  color: #fff;
+  padding: 2rem;
+  z-index: 2;
+}
+
+/* LOGO oppå bildet */
+.hero-logo {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  z-index: 2; /* over overlay */
+  display: inline-block;
+}
+.hero-logo img {
+  display: block;
+  width: clamp(120px, 12vw, 200px); /* responsiv bredde */
+  height: auto;
+  filter: drop-shadow(0 2px 6px #ffff); /* lesbarhet på lyst/mørkt */
+}
