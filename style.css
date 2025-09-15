@@ -1,8 +1,17 @@
+/* ===== Base (mobile first) ===== */
 * {
   box-sizing: border-box;
 }
+:root {
+  --yellow: #ffd60a;
+  --yellow-weak: #f6efc4;
+  --border: #e5e7eb;
+}
+html,
 body {
   margin: 0;
+}
+body {
   font-family: Arial, Helvetica, sans-serif;
   color: #111;
   background: #fff;
@@ -13,20 +22,34 @@ body {
   padding: 0 16px;
 }
 
-/* ===== Top bar ===== */
+/* skjermleser-tekst */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Top bar (MOBILE) ===== */
 .topbar {
-  background: #ffd60a;
+  background: var(--yellow);
   border-bottom: 1px solid #e0b800;
 }
-.topbar .wrap {
-  height: 56px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.topbar__wrap {
+  display: grid; /* MOBIL: stable i 3 rader */
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 8px 16px;
 }
 .topnav {
   display: flex;
-  gap: 20px;
+  gap: 16px;
+  justify-content: center;
 }
 .topnav a {
   color: #000;
@@ -34,22 +57,21 @@ body {
   font-weight: 800;
 }
 
-/* Search (ikon inni feltet) */
+/* Search – full bredde på mobil */
 .search {
-  flex: 1;
   display: flex;
   justify-content: center;
 }
 .search-box {
   position: relative;
-  width: min(480px, 56vw);
-}
+  width: 100%;
+} /* full width */
 .search input {
   width: 100%;
   padding: 8px 38px 8px 12px;
   border-radius: 9999px;
   border: 1px solid #d6c200;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   color: #111;
 }
 .search-btn {
@@ -64,32 +86,33 @@ body {
   cursor: pointer;
 }
 
-/* Social (små, sorte ikoner) */
+/* Social – midtstilt på mobil */
 .social {
   display: flex;
   gap: 12px;
   list-style: none;
   margin: 0;
   padding: 0;
+  justify-content: center;
 }
 .social a {
+  width: 44px;
+  height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
   color: #000;
   text-decoration: none;
 }
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   display: block;
 }
 .insta {
   fill: none;
   stroke: currentColor;
-  stroke-width: 3;
+  stroke-width: 2.6;
   stroke-linecap: round;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
@@ -102,28 +125,24 @@ body {
   fill: currentColor;
   stroke: none;
 }
-.sosial a:focus-visible {
-  outline: 3px solid #000;
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-/* ===== Hero ===== */
+
+/* ===== Hero (MOBILE) ===== */
 .hero {
   position: relative;
 }
 .hero-img {
   width: 100%;
-  height: 520px;
+  height: 420px;
   object-fit: cover;
   display: block;
 }
 .hero-logo {
   position: absolute;
-  left: 16px;
-  top: 16px;
+  left: 12px;
+  top: 12px;
 }
 .hero-logo img {
-  height: 250px;
+  height: 64px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -132,50 +151,50 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 14vh;
-  text-align: center;
-  white-space: nowrap;
+  bottom: 12vh;
   margin: 0;
   color: #fff;
   font-weight: 900;
-  font-size: 64px;
+  font-size: 32px;
   line-height: 1;
-  white-space: normal;
+  white-space: nowrap;
+  text-align: center;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
-/* ===== Quick links ===== */
+/* ===== Quick links (MOBILE) ===== */
 .quick {
-  background: #f6efc4;
+  background: var(--yellow-weak);
   border-top: 1px solid #f0e08c;
   border-bottom: 1px solid #f0e08c;
 }
 .quick-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  justify-items: stretch;
   padding: 12px 0;
 }
 .pill {
   display: block;
   text-align: center;
   padding: 12px 0;
-  background: #ffd60a;
+  background: var(--yellow);
   color: #000;
   text-decoration: none;
+  font-weight: 800;
   border-radius: 9999px;
 }
 
-/* ===== Cards (3 stk) ===== */
+/* ===== Cards (MOBILE) ===== */
 .cards {
-  background: #f6efc4;
-  padding: 48px 0;
+  background: var(--yellow-weak);
+  padding: 32px 0;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 .card h3 {
   text-align: center;
@@ -183,23 +202,23 @@ body {
 }
 .card img {
   width: 100%;
-  height: 260px;
+  height: 220px;
   object-fit: cover;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
 }
 
-/* ===== Visit ===== */
+/* ===== Visit (MOBILE) ===== */
 .visit {
-  background: #ffd60a;
+  background: var(--yellow);
   padding: 24px 0;
   border-top: 1px solid #e0b800;
   border-bottom: 1px solid #e0b800;
 }
 .visit-inner {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
 .visit-link {
   font-weight: 800;
@@ -227,14 +246,16 @@ body {
   border-top: 0;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer (MOBILE) ===== */
 .footer {
-  background: #ffd60a;
+  background: var(--yellow);
   padding: 24px 0;
   border-top: 1px solid #e0b800;
 }
 .footer-inner {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   justify-content: space-between;
   align-items: center;
 }
@@ -244,22 +265,120 @@ body {
   margin-left: 12px;
 }
 
-/* ===== Enkle responsive tweaks ===== */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
+/* =========================================
+   BREAKPOINTS  (mobile-first → oppover)
+   ========================================= */
+
+/* ≥ 640px (typ. små nettbrett) */
+@media (min-width: 640px) {
+  /* Topbar: litt strammere */
+  .topbar__wrap {
+    gap: 10px;
+  }
+
+  /* Hero */
+  .hero-img {
+    height: 480px;
   }
   .hero-title {
     font-size: 42px;
     bottom: 12vh;
   }
-}
-@media (max-width: 640px) {
+
+  /* Quick: 2 kolonner */
+  .quick-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Cards: 2 kolonner */
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ≥ 900px (desktop) */
+@media (min-width: 900px) {
+  /* Topbar: 3 kolonner (venstre/midt/høyre) i én rad */
+  .topbar__wrap {
+    padding: 0 16px;
+    height: 56px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+  .social {
+    justify-content: flex-end;
+  }
+  .search-box {
+    width: min(520px, 56vw);
+  }
+
+  /* Hero større */
+  .hero-img {
+    height: 520px;
+  }
+  .hero-logo {
+    left: 16px;
+    top: 16px;
+  }
+  .hero-logo img {
+    height: 90px;
   }
   .hero-title {
-    font-size: 28px;
-    bottom: 10vh;
+    font-size: 64px;
+    bottom: 14vh;
+  }
+
+  /* Quick: 3 kolonner, samme gap som kortene */
+  .quick-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  /* Cards: 3 kolonner */
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  /* Visit: side-om-side */
+  .visit-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* =========================================
+   DEBUG-HJELP (slå på ved å endre data-debug)
+   ========================================= */
+body[data-debug="on"] * {
+  outline: 1px dashed rgba(0, 0, 0, 0.25);
+}
+body[data-debug="on"] .wrap {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+}
+body::after {
+  position: fixed;
+  right: 8px;
+  bottom: 8px;
+  z-index: 9999;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font: 12px/1.2 monospace;
+  color: #000;
+  background: rgba(255, 214, 10, 0.9);
+  border: 1px solid #e0b800;
+  content: "<640px";
+}
+@media (min-width: 640px) {
+  body::after {
+    content: "≥640px";
+  }
+}
+@media (min-width: 900px) {
+  body::after {
+    content: "≥900px";
   }
 }

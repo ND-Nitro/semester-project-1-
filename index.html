@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-debug="off">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tech Vault Museum</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="veriables.css" />
   </head>
   <body>
     <!-- TOP BAR -->
     <header class="topbar">
-      <div class="wrap">
+      <div class="wrap topbar__wrap">
         <!-- venstre -->
         <nav class="topnav" aria-label="Main">
           <a href="#visit">Visit</a>
@@ -18,6 +19,7 @@
 
         <!-- midten: søk med ikon inni feltet -->
         <form class="search" role="search" aria-label="Search">
+          <label for="q" class="sr-only">Search</label>
           <div class="search-box">
             <input id="q" type="search" placeholder="Search" />
             <button class="search-btn" type="submit" aria-label="Search">
@@ -26,37 +28,43 @@
           </div>
         </form>
 
-        <!-- høyre: små sorte ikoner (enkle SVG-former) -->
+        <!-- høyre: sosiale ikoner (SVG) -->
         <ul class="social" aria-label="Social media">
-       <li>
-        <a href="#" aria-label="Instagram">
-          <svg class="icon Insta" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="5"/>
-          <circle cx="12" cy="12" r="5.5" />
-          <circle class="dot" cx="18" cy="7"  r="1.6" />
-          </svg>
-          </a>
-       </li>
-       <li>
-        <a href="#" aria-label="facebook">
-        <svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="8.5" y="4" width="4.5" height="16"/>
-          <rect x="8.5" y="6" width="9" height="4.5"/>
-        </svg>
-        </a>
-       </li>
-       <li>
-        <a href="#" aria-label="twitter">
-          <svg class="icon fill"  viewBox="0 0 24 24" aria-hidden="true">
-          <g transform="translate(12,12) rotate(45)">
-            <rect x="-10" y="-2"  width="20"  height="4"/>
-            <rect x="10"  y="2" width="20"  height="4" transform="rotate(90)"/>
-          </g>
-          </svg>
-        </a>
-       </li>
+          <li>
+            <a href="#" aria-label="Instagram">
+              <svg class="icon insta" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5.5" />
+                <circle class="dot" cx="18" cy="7" r="1.6" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Facebook">
+              <svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="9" y="4" width="6" height="16" />
+                <rect x="7.5" y="6" width="9" height="4.5" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" aria-label="Twitter">
+              <svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true">
+                <g transform="translate(12,12) rotate(45)">
+                  <rect x="-10" y="-2" width="20" height="4" />
+                  <rect
+                    x="-10"
+                    y="-2"
+                    width="20"
+                    height="4"
+                    transform="rotate(90)"
+                  />
+                </g>
+              </svg>
+            </a>
+          </li>
+        </ul>
       </div>
-
     </header>
 
     <main>
