@@ -6,10 +6,12 @@
     <title>Tech Vault Museum</title>
     <link rel="stylesheet" href="variables.css" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
-
-  <body>
-    <!-- TOP BAR -->
+  <body class="page-vr">
     <header class="topbar">
       <div class="wrap topbar__wrap">
         <!-- venstre -->
@@ -17,7 +19,6 @@
           <a href="#visit">Visit</a>
           <a href="#whats">What happening?</a>
         </nav>
-             <!-- midten: søk med ikon inni feltet -->
         <form class="search" role="search" aria-label="Search">
           <label for="q" class="sr-only">Search</label>
           <div class="search-box">
@@ -25,75 +26,97 @@
             <button class="search-btn" type="submit" aria-label="Search">
               🔍
             </button>
-            <div class="social-links">
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <img
+          class="hero-img"
+          src="images/billetto-editorial-334686.jpg"
+          alt="Boy with VR glasses"
+        />
+        <div>
+          <a class="hero-logo" href="/" aria-label="Home">
+            <img
+              src="images/ChatGPT Image 9. sep. 2025, 11_05_23.png"
+              alt="Tech Vault Museum"
+            />
+          </a>
+        </div>
+        <h1 class="hero-title">Virtual Reality</h1>
+      </section>
+
+      <section class="vr" id="whats">
+        <div class="wrap vr__content">
+          <h2>VR | The Gateway to a New Reality</h2>
+
+          <img
+            src="images/ChatGPT Image 31. aug. 2025, 14_07_33.png"
+            alt="Person inside a VR world"
+            class="vr__image"
+          />
+
+          <p>
+            Virtual Reality (VR) is no longer just science fiction – it’s a
+            technology that literally lets us step into new worlds. With a VR
+            headset, you can explore the universe, stand in the middle of a
+            historic event, practice surgical procedures, or game with a
+            completely new sense of presence. What makes VR unique is its
+            ability to create immersion – tricking the brain into believing
+            you’re physically present inside the digital space. This opens up
+            massive opportunities, not just for entertainment, but also in
+            education, research, training, and healthcare.
+          </p>
+
+          <h3>Today, VR is being used to:</h3>
+          <ul class="vr__list">
+            <li>Train pilots and soldiers in lifelike scenarios.</li>
+            <li>Educate doctors in safe, simulated environments.</li>
+            <li>Reinvent collaboration through virtual meeting spaces.</li>
+            <li>
+              Deliver travel and experiences to places otherwise out of reach.
+            </li>
+          </ul>
+
+          <p>
+            VR is more than just a screen strapped to your face – it’s a bridge
+            between imagination and reality. The future of technology is already
+            here, and it’s becoming more realistic every single day.
+          </p>
+
+          <p>
+            <a href="test-vr.html" class="pill">Test VR</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <section class="visit" id="visit">
+          <div class="wrap visit-inner">
+            <div class="visit-info">
+              <h3>Visit us</h3>
+              <p>123 VR Street, Cyber City</p>
+              <p><a class="visit-link" href="#">Get directions →</a></p>
+            </div>
+          </div>
+        </section>
+        <nav class="social-links" aria-label="Social">
           <a href="https://facebook.com/" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
           </a>
           <a href="https://instagram.com/" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://tiktok.com/" aria-label="TikTok">
-            <i class="fa-brands fa-tiktok"></i>
+          <a href="https://x.com/" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
           </a>
-          <a href="https://youtube.com/" aria-label="YouTube">
-            <i class="fa-brands fa-youtube"></i>
-          </a>
-        </div>
-          </div>
-        </form>
-      </div>
-    </header>
-    <main>
-      <section class="hero">
-        <img
-          class="hero-img"
-          src="images/billetto-editorial-334686.jpg"
-          alt="Boy with vr glasses"
-        />
-        <!-- logo i bildet -->
-        <a class="hero-logo" href="/" aria-label="Home">
-          <img
-            src="images/ChatGPT Image 9. sep. 2025, 11_05_23.png"
-            alt="Tech Vault Museum"
-          />
-        </a>
-        <!-- stor tittel -->
-        <h1 class="hero-title">Virtual Reality</h1>
-      </section>
-      <section class="VR">
-        <h2>VR|The Gateway to a New Reality</h2>
-        <img
-          src="images/ChatGPT Image 31. aug. 2025, 14_07_33.png"
-          alt="guy inside vr world"
-        />
-        <p>
-          Virtual Reality (VR) is no longer just science fiction – it’s a
-          technology that literally lets us step into new worlds. With a VR
-          headset, you can explore the universe, stand in the middle of a
-          historic event, practice surgical procedures, or game with a
-          completely new sense of presence. What makes VR unique is its ability
-          to create immersion – tricking the brain into believing you’re
-          physically present inside the digital space. This opens up massive
-          opportunities, not just for entertainment, but also in education,
-          research, training, and healthcare.
-        </p>
-        <p>
-          Today, VR is being used to:
-          <ul>
-            <li>Train pilots and soldiers in lifelike scenarios.</li>
-            <li>Educate doctors in safe, simulated environments.</li>
-            <li>Reinvent collaboration through virtual meeting spaces.</li>
-            <li>Deliver travel and experiences to places otherwise out of reach.</li>
-          </ul>
-          VR is more than just a screen strapped to your face – it’s a bridge between imagination and reality. The future of technology is already here, and it’s becoming more realistic every single day.
-        </p>
-        <a href="Test-VR">Test VR</a>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="wrap footer-inner">
+        </nav>
         <p>© 2025 Tech Vault Museum</p>
         <nav aria-label="Footer">
           <a href="#" class="foot-link">Privacy</a>

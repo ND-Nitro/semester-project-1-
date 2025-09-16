@@ -1,0 +1,16 @@
+:root {
+  /* Farger */
+  --bg: #fff3b0;
+  --text: #111;
+  --accent: #ffd60a; /* gul */
+  --accent-dark: #e0b800; /* mørkere gul */
+  --border: #e5e7eb;
+
+  /* Spacing */
+  --s-2: 12px;
+  --s-3: 16px;
+  --s-4: 24px;
+
+  /* Radius */
+  --radius: 8px;
+}

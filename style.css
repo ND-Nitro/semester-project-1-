@@ -1,28 +1,33 @@
-/* ===== Base (mobile first) ===== */
-* {
+/* ==================================================
+   Base (MOBILE FIRST) — DRY + minimal overrides
+   Depends on variables.css
+   ================================================== */
+
+/* Small reset */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-}
-:root {
-  --yellow: #ffd60a;
-  --yellow-weak: #f6efc4;
-  --border: #e5e7eb;
 }
 html,
 body {
   margin: 0;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #111;
-  background: #fff;
-}
-.wrap {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 16px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+  color: var(--brand-text, #111);
+  background: var(--brand-bg, #fff);
 }
 
-/* skjermleser-tekst */
+/* Layout helper */
+.wrap {
+  max-width: var(--wrap, 1120px);
+  margin-inline: auto;
+  padding-inline: var(--s-3, 16px);
+}
+
+/* Screenreader only */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -35,20 +40,22 @@ body {
   border: 0;
 }
 
-/* ===== Top bar (MOBILE) ===== */
+/* ==================================================
+   Top bar
+   ================================================== */
 .topbar {
-  background: var(--yellow);
-  border-bottom: 1px solid #e0b800;
+  background: var(--accent, #ffd60a);
+  border-bottom: 1px solid var(--accent-border, #e0b800);
 }
 .topbar__wrap {
-  display: grid; /* MOBIL: stable i 3 rader */
+  display: grid; /* mobile: stacked */
   grid-template-columns: 1fr;
-  gap: 8px;
-  padding: 8px 16px;
+  gap: var(--s-2, 12px);
+  padding-block: var(--s-2, 12px);
 }
 .topnav {
   display: flex;
-  gap: 16px;
+  gap: var(--s-3, 16px);
   justify-content: center;
 }
 .topnav a {
@@ -57,7 +64,7 @@ body {
   font-weight: 800;
 }
 
-/* Search – full bredde på mobil */
+/* Search — full width on mobile */
 .search {
   display: flex;
   justify-content: center;
@@ -65,14 +72,15 @@ body {
 .search-box {
   position: relative;
   width: 100%;
-} /* full width */
+  max-width: var(--search-max, 520px); /* clamp width without a breakpoint */
+}
 .search input {
   width: 100%;
   padding: 8px 38px 8px 12px;
-  border-radius: 9999px;
-  border: 1px solid #d6c200;
+  border-radius: var(--radius-pill, 9999px);
+  border: 1px solid var(--accent-border, #e0b800);
   background: rgba(255, 255, 255, 0.85);
-  color: #111;
+  color: var(--brand-text, #111);
 }
 .search-btn {
   position: absolute;
@@ -86,16 +94,18 @@ body {
   cursor: pointer;
 }
 
-/* Social – midtstilt på mobil */
-.social {
+/* Social links — support both .social and .social-links */
+.social,
+.social-links {
   display: flex;
-  gap: 12px;
+  gap: var(--s-2, 12px);
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: center;
 }
-.social a {
+.social a,
+.social-links a {
   width: 44px;
   height: 44px;
   display: inline-flex;
@@ -104,6 +114,8 @@ body {
   color: #000;
   text-decoration: none;
 }
+
+/* Simple icon helpers if you use inline SVGs */
 .icon {
   width: 26px;
   height: 26px;
@@ -126,13 +138,19 @@ body {
   stroke: none;
 }
 
-/* ===== Hero (MOBILE) ===== */
+/* ==================================================
+   Hero
+   ================================================== */
 .hero {
   position: relative;
 }
 .hero-img {
   width: 100%;
-  height: 420px;
+  height: clamp(
+    var(--hero-img-min-h, 380px),
+    50vh,
+    var(--hero-img-max-h, 560px)
+  );
   object-fit: cover;
   display: block;
 }
@@ -142,7 +160,7 @@ body {
   top: 12px;
 }
 .hero-logo img {
-  height: 64px;
+  height: 80px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -155,70 +173,74 @@ body {
   margin: 0;
   color: #fff;
   font-weight: 900;
-  font-size: 32px;
+  font-size: clamp(var(--fs-hero-min, 28px), 5vw, var(--fs-hero-max, 64px));
   line-height: 1;
   white-space: nowrap;
   text-align: center;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
-/* ===== Quick links (MOBILE) ===== */
+/* ==================================================
+   Quick links (auto-fit -> færre breakpoints)
+   ================================================== */
 .quick {
-  background: var(--yellow-weak);
-  border-top: 1px solid #f0e08c;
-  border-bottom: 1px solid #f0e08c;
+  background: var(--accent-weak, #f6efc4);
+  border-block: 1px solid #f0e08c;
 }
 .quick-row {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--s-2, 12px);
   justify-items: stretch;
-  padding: 12px 0;
+  padding-block: var(--s-2, 12px);
 }
 .pill {
   display: block;
   text-align: center;
   padding: 12px 0;
-  background: var(--yellow);
+  background: var(--accent, #ffd60a);
   color: #000;
   text-decoration: none;
   font-weight: 800;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill, 9999px);
 }
 
-/* ===== Cards (MOBILE) ===== */
+/* ==================================================
+   Cards (auto-fit grid)
+   ================================================== */
 .cards {
-  background: var(--yellow-weak);
-  padding: 32px 0;
+  background: var(--accent-weak, #f6efc4);
+  padding-block: var(--s-5, 32px);
 }
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s-4, 24px);
 }
 .card h3 {
   text-align: center;
-  margin: 0 0 8px;
+  margin: 0 0 var(--s-2, 12px);
 }
 .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border, #e5e7eb);
 }
 
-/* ===== Visit (MOBILE) ===== */
+/* ==================================================
+   Visit
+   ================================================== */
 .visit {
-  background: var(--yellow);
-  padding: 24px 0;
-  border-top: 1px solid #e0b800;
-  border-bottom: 1px solid #e0b800;
+  background: var(--accent, #ffd60a);
+  padding-block: var(--s-4, 24px);
+  border-block: 1px solid var(--accent-border, #e0b800);
 }
 .visit-inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: var(--s-3, 16px);
 }
 .visit-link {
   font-weight: 800;
@@ -232,8 +254,8 @@ body {
   margin: 0;
   padding: 0;
   background: #fff;
-  border: 1px solid #d6c200;
-  border-radius: 8px;
+  border: 1px solid var(--accent-border, #e0b800);
+  border-radius: var(--radius, 8px);
   overflow: hidden;
 }
 .hours li {
@@ -246,120 +268,92 @@ body {
   border-top: 0;
 }
 
-/* ===== Footer (MOBILE) ===== */
+/* ==================================================
+   Footer
+   ================================================== */
 .footer {
-  background: var(--yellow);
-  padding: 24px 0;
-  border-top: 1px solid #e0b800;
+  background: var(--accent, #ffd60a);
+  padding-block: var(--s-4, 24px);
+  border-top: 1px solid var(--accent-border, #e0b800);
 }
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--s-2, 12px);
   justify-content: space-between;
   align-items: center;
 }
 .foot-link {
   color: #000;
   text-decoration: none;
-  margin-left: 12px;
+  margin-left: var(--s-2, 12px);
 }
 
-/* =========================================
-   BREAKPOINTS  (mobile-first → oppover)
-   ========================================= */
+/* ==================================================
+   BREAKPOINTS (mobile-first → oppover)
+   Hold antallet lavt; bruk auto-fit & clamp der det går
+   ================================================== */
 
-/* ≥ 640px (typ. små nettbrett) */
+/* ≥ 640px (små nettbrett) */
 @media (min-width: 640px) {
-  /* Topbar: litt strammere */
   .topbar__wrap {
-    gap: 10px;
+    gap: var(--s-3, 16px);
   }
-
-  /* Hero */
   .hero-img {
-    height: 480px;
+    height: clamp(440px, 52vh, var(--hero-img-max-h, 560px));
   }
-  .hero-title {
-    font-size: 42px;
-    bottom: 12vh;
-  }
-
-  /* Quick: 2 kolonner */
   .quick-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  /* Cards: 2 kolonner */
+    gap: var(--s-3, 16px);
+  } /* auto-fit håndterer kolonner */
   .grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
+    gap: var(--s-4, 24px);
+  } /* auto-fit håndterer kolonner */
 }
 
 /* ≥ 900px (desktop) */
 @media (min-width: 900px) {
-  /* Topbar: 3 kolonner (venstre/midt/høyre) i én rad */
   .topbar__wrap {
-    padding: 0 16px;
-    height: 56px;
-    display: grid;
+    padding-inline: var(--s-3, 16px);
+    min-height: 56px;
     grid-template-columns: auto 1fr auto;
     align-items: center;
   }
-  .social {
+  .social,
+  .social-links {
     justify-content: flex-end;
   }
   .search-box {
-    width: min(520px, 56vw);
+    max-width: min(var(--search-max, 520px), 56vw);
   }
 
-  /* Hero større */
-  .hero-img {
-    height: 520px;
-  }
   .hero-logo {
     left: 16px;
     top: 16px;
   }
   .hero-logo img {
-    height: 90px;
+    height: 150px;
   }
   .hero-title {
-    font-size: 64px;
     bottom: 14vh;
   }
 
-  /* Quick: 3 kolonner, samme gap som kortene */
-  .quick-row {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  /* Cards: 3 kolonner */
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-  }
-
-  /* Visit: side-om-side */
   .visit-inner {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: var(--s-4, 24px);
   }
 }
+/* ==================================================
+   Debug overlay (OPT-IN ved html[data-debug="on"])
+   ================================================== */
 
-/* =========================================
-   DEBUG-HJELP (slå på ved å endre data-debug)
-   ========================================= */
-body[data-debug="on"] * {
+html[data-debug="on"] * {
   outline: 1px dashed rgba(0, 0, 0, 0.25);
 }
-body[data-debug="on"] .wrap {
+html[data-debug="on"] .wrap {
   outline: 2px solid rgba(0, 0, 0, 0.35);
 }
-body::after {
+
+html[data-debug="on"] body::after {
   position: fixed;
   right: 8px;
   bottom: 8px;
@@ -369,16 +363,377 @@ body::after {
   font: 12px/1.2 monospace;
   color: #000;
   background: rgba(255, 214, 10, 0.9);
-  border: 1px solid #e0b800;
+  border: 1px solid var(--accent-border, #e0b800);
   content: "<640px";
+  pointer-events: none; /* aldri blokker klikk */
 }
 @media (min-width: 640px) {
-  body::after {
+  html[data-debug="on"] body::after {
     content: "≥640px";
   }
 }
 @media (min-width: 900px) {
-  body::after {
+  html[data-debug="on"] body::after {
     content: "≥900px";
   }
+}
+.vr {
+  background: var(--brand-bg);
+  padding-block: var(--s-5, 32px);
+}
+
+.vr__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-3, 16px);
+}
+
+.vr__content h2 {
+  margin: 0;
+  font-size: clamp(22px, 3.8vw, 34px);
+  line-height: 1.15;
+}
+
+.vr__content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.vr__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius, 8px);
+  border: 1px solid var(--border, #e5e7eb);
+}
+
+/* Liste med litt mer luft */
+.vr__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 6px;
+}
+
+/* Desktop-oppsett for VR-innhold */
+@media (min-width: 900px) {
+  .vr__content {
+    grid-template-columns: 1.2fr 1fr; /* tekst | bilde */
+    align-items: start;
+    gap: var(--s-4, 24px);
+  }
+  .vr__image {
+    margin-top: 4px;
+  }
+}
+/* ===== Information section (mobile-first) ===== */
+.info {
+  background: var(--brand-bg);
+  padding-block: var(--s-5, 32px);
+}
+
+.info__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobil: én kolonne */
+  gap: var(--s-4, 24px);
+}
+
+.info__block {
+  background: var(--accent-weak, #f6efc4);
+  border: 1px solid #f0e08c;
+  border-radius: var(--radius, 8px);
+  padding: var(--s-4, 24px);
+}
+
+.info__block h2,
+.info__block h3,
+.info__block h4 {
+  margin: 0 0 0.5rem;
+}
+
+.info__block p {
+  margin: 0 0 0.75rem;
+}
+
+.info__address {
+  font-style: normal; /* unngå kursiv på address */
+  margin: 0 0 0.75rem;
+}
+
+/* Desktop: to kolonner (tekst | besøk) */
+@media (min-width: 900px) {
+  .info__grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+/* ===== Information section (mobile-first) ===== */
+.info {
+  background: var(--brand-bg, #fff);
+  padding-block: var(--s-5, 32px);
+}
+
+.info__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobil: én kolonne */
+  gap: var(--s-4, 24px);
+}
+
+.info__block {
+  background: var(--accent-weak, #f6efc4);
+  border: 1px solid #f0e08c;
+  border-radius: var(--radius, 8px);
+  padding: var(--s-4, 24px);
+}
+
+/* Titler og tekst */
+.info__block h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(22px, 3.6vw, 34px);
+  line-height: 1.15;
+}
+.info__block h3 {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(18px, 2.6vw, 22px);
+}
+.info__block h4 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.info__block p {
+  margin: 0 0 0.75rem;
+  line-height: 1.6;
+}
+
+/* Adresse uten kursiv */
+.info__address {
+  font-style: normal;
+  margin: 0 0 0.75rem;
+}
+
+/* Hvis du allerede har global .hours-stil kan du droppe disse tre reglene: */
+.info .hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: 1px solid var(--accent-border, #e0b800);
+  border-radius: var(--radius, 8px);
+  overflow: hidden;
+}
+.info .hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  border-top: 1px solid #f3e37a;
+}
+.info .hours li:first-child {
+  border-top: 0;
+}
+
+/* Desktop: to kolonner (tekst | besøk) */
+@media (min-width: 900px) {
+  .info__grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+/* =============== Base reset =============== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.wrap {
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: var(--s-3);
+}
+
+/* =============== Quick links =============== */
+.quick-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--s-3);
+  padding: var(--s-3) 0;
+}
+
+.pill {
+  display: block;
+  text-align: center;
+  padding: var(--s-3);
+  border: 2px solid var(--accent-dark);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.pill:hover {
+  background: #000;
+  color: var(--accent);
+}
+
+/* =============== Cards =============== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column; /* bilde over, tekst under */
+  padding: 0; /* ingen luft rundt */
+  overflow: hidden; /* skjul alt som stikker ut */
+  border-radius: var(--radius);
+}
+
+.card h3 {
+  margin: var(--s-2) 0;
+  text-align: center;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  filter: brightness(1.1);
+}
+/* ==== Card hover fargeeffekt ==== */
+.card {
+  background: var(--accent); /* gul bakgrunn */
+  color: #000; /* svart tekst */
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--accent-dark);
+  transition: all 0.3s ease;
+}
+
+.card h3 {
+  margin: var(--s-2) 0;
+  text-align: center;
+}
+
+.card:hover {
+  background: #000; /* svart boks */
+  color: var(--accent); /* gul tekst */
+  transform: scale(1.03);
+}
+/* vr: hero justering */
+
+.page-vr .hero-img {
+  height: clamp(300px, 45vh, 480px);
+  object-position: center 20%;
+}
+
+@media (min-width: 900px) {
+  .page-vr .hero-title {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+}
+
+/* vr- pictures align */
+@media (min-width: 900px) {
+  .page-vr .vr__content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--s-4, 24px);
+    align-items: start;
+  }
+}
+
+.page-vr .vr .pill {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border-radius: var(--radius, 8px);
+  background: var(--accent, #ffd60a);
+  color: #000;
+  border: 2px solid var(--accent-dark, #e0b800);
+  text-decoration: none;
+  font-weight: 800;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+.page-vr .vr .pill:hover {
+  background: #000;
+  color: var(--accent, #ffd60a);
+}
+/* ================= VR layout: tittel over, bilde venstre, tekst høyre ================= */
+.page-vr .vr__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-4, 24px);
+}
+
+@media (min-width: 900px) {
+  .page-vr .vr__content {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+    column-gap: var(--s-4, 24px);
+    row-gap: var(--s-3, 16px);
+  }
+
+  .page-vr .vr__content > h2 {
+    grid-column: 1/-1;
+    margin: 0;
+  }
+
+  .page-vr .vr__image {
+    grid-column: 1;
+    justify-self: start;
+    width: 100%;
+    max-width: 100%;
+    height: 360px; /*justere som jeg ønsker seinere */
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius, 8px);
+    border: 1px solid var(--border, #e5e7eb);
+  }
+}
+.page-vr .vr__content > :not(h2):not(.vr__image) {
+  grid-column: 2;
+  text-align: left;
+}
+
+.page-vr.vr__list {
+  text-align: left;
+  list-style-type: outside;
+}
+
+.page-vr .vr .pill {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border-radius: var(--radius, 8px);
+  background: var(--accent, #ffd60a);
+  color: #000;
+  border: 2px solid var(--accent-dark, #e0b800);
+  text-decoration: none;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.page-vr .vr .pill:hover {
+  background: #000;
+  color: var(--accent, #ffd60a);
 }
