@@ -11,8 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-
-  <body>
+  <body class="page-test-vr">
     <header class="topbar">
       <div class="wrap topbar__wrap">
         <!-- venstre -->
@@ -31,6 +30,7 @@
         </form>
       </div>
     </header>
+
     <main>
       <section class="hero">
         <img
@@ -47,8 +47,9 @@
           </a>
         </div>
       </section>
+
       <h2>Experience the Future of VR with Us</h2>
-      <p>
+      <p class="vr-text">
         At the museum, you can explore exciting VR experiences in a safe and
         specially designed environment. We provide equipment for you to borrow,
         including advanced VR headsets and an interactive vest that allows you
@@ -61,41 +62,59 @@
       </p>
       <section class="video">
         <div class="wrap">
-          <h2>watch video</h2>
-          <div class="video-embed">
-            <iframe
-              src="https://www.youtube.com/watch?v=7WMmAuYsInY"
-              title="Youtube IFrame API Demo"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+          <h3>CHECK OUT VR IN SPACE</h3>
+          <div class="video-align-right">
+            <a
+              class="yt-card"
+              href="https://www.youtube.com/watch?v=hEdzv7D4CbQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="play this video to exsperiance vr"
             >
-            </iframe>
+              <img
+                src="images/alexandr-voronsky-qZKtpNlhvOw-unsplash (1).jpg"
+                alt="Forhåndsvisning av video"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="yt-card__play" aria-hidden="true">▶</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
           </div>
         </div>
       </section>
     </main>
-
-    <!-- FOOTER -->
     <footer class="footer">
       <div class="wrap footer-inner">
-        <p>© 2025 Tech Vault Museum</p>
-        <nav aria-label="Footer">
-          <a href="#" class="foot-link">Privacy</a>
-          <a href="#" class="foot-link">Cookies</a>
-          <a href="#" class="foot-link">Accessibility</a>
-        </nav>
-        <div class="social-links">
+        <section class="visit" id="visit">
+          <div class="wrap visit-inner">
+            <div class="visit-info">
+              <h3>Visit us</h3>
+              <p>123 VR Street, Cyber City</p>
+              <p><a class="visit-link" href="#">Get directions →</a></p>
+            </div>
+          </div>
+        </section>
+        <nav class="social-links" aria-label="Social">
           <a href="https://facebook.com/" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
           </a>
           <a href="https://instagram.com/" aria-label="Instagram">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="https://x.com/" aria-label="x">
-            <i class="fa-brands fa-x"></i>
+          <a href="https://x.com/" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
           </a>
-        </div>
+        </nav>
+        <p>© 2025 Tech Vault Museum</p>
+        <nav aria-label="Footer">
+          <a href="#" class="foot-link">Privacy</a>
+          <a href="#" class="foot-link">Cookies</a>
+          <a href="#" class="foot-link">Accessibility</a>
+        </nav>
       </div>
     </footer>
   </body>
