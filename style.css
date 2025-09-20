@@ -253,7 +253,6 @@ body {
    ================================================== */
 .footer {
   background: var(--accent, #ffd60a);
-  border-top: 1px solid var(--accent-border, #e0b800);
   padding-block: var(--s-4, 24px);
 }
 .footer-inner {
@@ -513,7 +512,7 @@ body {
     padding-inline: var(--s-3, 16px);
     min-height: 56px;
   }
-  .social,
+
   .social-links {
     justify-content: flex-end;
   }
