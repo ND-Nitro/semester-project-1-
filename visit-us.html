@@ -12,20 +12,17 @@
     />
   </head>
   <body>
-    <!-- TOP BAR -->
     <header class="topbar">
       <div class="wrap topbar__wrap">
-        <!-- venstre -->
         <nav class="topnav" aria-label="Main">
           <a href="#visit">Visit</a>
-          <a href="#whats">What happening?</a>
+          <a href="#whats">What's happening?</a>
         </nav>
 
-        <!-- midten: søk med ikon inni feltet -->
         <form class="search" role="search" aria-label="Search">
           <label for="q" class="sr-only">Search</label>
           <div class="search-box">
-            <input id="q" type="search" placeholder="Search" />
+            <input id="q" name="q" type="search" placeholder="Search" />
             <button class="search-btn" type="submit" aria-label="Search">
               🔍
             </button>
@@ -34,16 +31,12 @@
       </div>
     </header>
     <div>
-      <a class="hero-logo" href="/" aria-label="Home">
-        <img
-          src="images/ChatGPT Image 9. sep. 2025, 11_05_23.png"
-          alt="Tech Vault Museum"
-        />
+      <a class="hero-logo" href="index.html" aria-label="Home">
+        <img src="images/tecvaultlogo.png" alt="Tech Vault Museum" />
       </a>
     </div>
     <section class="info" id="info">
       <div class="wrap info__grid">
-        <!-- Admission -->
         <div class="info__block">
           <h2>Information</h2>
           <h3>Admission</h3>
@@ -57,16 +50,15 @@
             people, please <a href="#contact">contact us</a> to arrange the
             tour.
           </p>
-          <p><a href="#book" class="pill">Book Tour</a></p>
+          <p><a href="book.html" class="pill">Book Tour</a></p>
         </div>
 
-        <!-- Visit Us -->
         <div class="info__block">
           <h3>Visit Us</h3>
           <h4>Location</h4>
           <address class="info__address">
-            7429 Elmwood Drive<br />
-            Dallas, TX 75209
+            <p>7429 Elmwood Drive</p>
+            <p>Dallas, TX 75209</p>
           </address>
 
           <h4>Opening Hours</h4>
@@ -84,13 +76,19 @@
     </section>
     <footer class="footer">
       <div class="wrap footer-inner">
-        <p>© 2025 Tech Vault Museum</p>
-        <nav aria-label="Footer">
-          <a href="#" class="foot-link">Privacy</a>
-          <a href="#" class="foot-link">Cookies</a>
-          <a href="#" class="foot-link">Accessibility</a>
-        </nav>
-        <div class="social-links">
+        <section class="visit" id="visit">
+          <div class="wrap visit-inner">
+            <div class="visit-info">
+              <h3>Visit us</h3>
+              <p>7429 Elmwood Drive</p>
+              <p>Dallas, TX 75209</p>
+              <p>
+                <a class="visit-link" href="visit-us.html">Get directions →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+        <nav class="social-links" aria-label="Social">
           <a href="https://facebook.com/" aria-label="Facebook">
             <i class="fa-brands fa-facebook"></i>
           </a>
@@ -98,9 +96,15 @@
             <i class="fa-brands fa-instagram"></i>
           </a>
           <a href="https://x.com/" aria-label="X">
-            <i class="fa-brands fa-x"></i>
+            <i class="fa-brands fa-x-twitter"></i>
           </a>
-        </div>
+        </nav>
+        <p>© 2025 Tech Vault Museum</p>
+        <nav aria-label="Footer">
+          <a href="#" class="foot-link">Privacy</a>
+          <a href="#" class="foot-link">Cookies</a>
+          <a href="#" class="foot-link">Accessibility</a>
+        </nav>
       </div>
     </footer>
   </body>
