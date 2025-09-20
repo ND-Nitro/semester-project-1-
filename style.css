@@ -87,7 +87,6 @@ body {
 }
 
 /* Social links */
-.social,
 .social-links {
   display: flex;
   gap: var(--s-2, 12px);
@@ -96,7 +95,6 @@ body {
   padding: 0;
   justify-content: center;
 }
-.social a,
 .social-links a {
   width: 44px;
   height: 44px;
@@ -338,7 +336,7 @@ body {
   max-width: 60ch;
   margin: 0 auto 1rem;
   margin-top: 0.5rem;
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 /* stack and center the video wrapper (mobile-first) */
