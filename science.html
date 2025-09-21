@@ -11,12 +11,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-  <body>
+  <body class="page-science">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="topbar">
       <div class="wrap topbar__wrap">
         <nav class="topnav" aria-label="Main">
           <a href="visit-us.html">Visit</a>
-          <a href="#whats">What's happening?</a>
+          <a href="book.html">What's happening?</a>
         </nav>
         <form class="search" role="search" aria-label="Search">
           <label for="q" class="sr-only">Search</label>
@@ -30,7 +31,7 @@
       </div>
     </header>
 
-    <main>
+    <main id="main">
       <section class="hero">
         <img
           class="hero-img"
@@ -45,13 +46,15 @@
         <h1 class="hero-title">Science Show</h1>
       </section>
 
-      <h2>Science you can do at home</h2>
-      <p>
-        Here you'll find a short video showing fun experiments you and your
-        parents can do at home. We use safe, everyday items and explain each
-        step so everyone can join in. Perfect for curious minds and helpful
-        hands!
-      </p>
+      <div class="wrap page-science__intro">
+        <h2>Science you can do at home</h2>
+        <p>
+          Here you'll find a short video showing fun experiments you and your
+          parents can do at home. We use safe, everyday items and explain each
+          step so everyone can join in. Perfect for curious minds and helpful
+          hands!
+        </p>
+      </div>
 
       <section class="video">
         <div class="wrap">
@@ -66,7 +69,7 @@
             >
               <img
                 src="images/jametlene-reskp-yHVTNJMmxeE-unsplash (1).jpg"
-                alt="prewiew of video"
+                alt="Preview of the science show video"
                 loading="lazy"
                 decoding="async"
               />

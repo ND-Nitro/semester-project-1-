@@ -11,12 +11,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-  <body>
+  <body class="page-visit">
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="topbar">
       <div class="wrap topbar__wrap">
         <nav class="topnav" aria-label="Main">
           <a href="#visit">Visit</a>
-          <a href="#whats">What's happening?</a>
+          <a href="book.html">What's happening?</a>
         </nav>
 
         <form class="search" role="search" aria-label="Search">
@@ -30,50 +31,56 @@
         </form>
       </div>
     </header>
-    <div>
-      <a class="hero-logo" href="index.html" aria-label="Home">
-        <img src="images/tecvaultlogo.png" alt="Tech Vault Museum" />
-      </a>
-    </div>
-    <section class="info" id="info">
-      <div class="wrap info__grid">
-        <div class="info__block">
-          <h2>Information</h2>
-          <h3>Admission</h3>
-          <p>The entrance is free for all.</p>
-          <p>
-            Guided tours leave every hour. Tickets are <strong>$7</strong> per
-            person and include a printed museum guide and an assistive headset.
-          </p>
-          <p>
-            If you’d like to organise a guided tour for a group of 6 or more
-            people, please <a href="#contact">contact us</a> to arrange the
-            tour.
-          </p>
-          <p><a href="book.html" class="pill">Book Tour</a></p>
+    <main id="main">
+      <h1 class="sr-only">Visit Us</h1>
+      <section class="hero hero--static">
+        <div class="wrap">
+          <a class="hero-logo" href="index.html" aria-label="Home">
+            <img src="images/tecvaultlogo.png" alt="Tech Vault Museum" />
+          </a>
         </div>
+      </section>
+      <section class="info" id="info">
+        <div class="wrap info__grid">
+          <div class="info__block">
+            <h2>Information</h2>
+            <h3>Admission</h3>
+            <p>The entrance is free for all.</p>
+            <p>
+              Guided tours leave every hour. Tickets are <strong>$7</strong> per
+              person and include a printed museum guide and an assistive
+              headset.
+            </p>
+            <p>
+              If you’d like to organise a guided tour for a group of 6 or more
+              people, please <a href="#contact">contact us</a> to arrange the
+              tour.
+            </p>
+            <p><a href="book.html" class="pill">Book Tour</a></p>
+          </div>
 
-        <div class="info__block">
-          <h3>Visit Us</h3>
-          <h4>Location</h4>
-          <address class="info__address">
-            <p>7429 Elmwood Drive</p>
-            <p>Dallas, TX 75209</p>
-          </address>
+          <div class="info__block">
+            <h3>Visit Us</h3>
+            <h4>Location</h4>
+            <address class="info__address">
+              <p>7429 Elmwood Drive</p>
+              <p>Dallas, TX 75209</p>
+            </address>
 
-          <h4>Opening Hours</h4>
-          <ul class="hours">
-            <li><span>Monday</span><span>Closed</span></li>
-            <li><span>Tuesday</span><span>10:00–16:00</span></li>
-            <li><span>Wednesday</span><span>10:00–16:00</span></li>
-            <li><span>Thursday</span><span>10:00–16:00</span></li>
-            <li><span>Friday</span><span>10:00–19:00</span></li>
-            <li><span>Saturday</span><span>09:00–16:00</span></li>
-            <li><span>Sunday</span><span>09:00–13:00</span></li>
-          </ul>
+            <h4>Opening Hours</h4>
+            <ul class="hours">
+              <li><span>Monday</span><span>Closed</span></li>
+              <li><span>Tuesday</span><span>10:00–16:00</span></li>
+              <li><span>Wednesday</span><span>10:00–16:00</span></li>
+              <li><span>Thursday</span><span>10:00–16:00</span></li>
+              <li><span>Friday</span><span>10:00–19:00</span></li>
+              <li><span>Saturday</span><span>09:00–16:00</span></li>
+              <li><span>Sunday</span><span>09:00–13:00</span></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
     <footer class="footer">
       <div class="wrap footer-inner">
         <section class="visit" id="visit">
