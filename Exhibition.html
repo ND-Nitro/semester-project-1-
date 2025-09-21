@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-debug="off">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Work in progress due to lack of funds" />
-    <title>Coming Soon | Vault Tech Museum</title>
+    <title>Tech Vault Museum</title>
     <link rel="stylesheet" href="variables.css" />
     <link rel="stylesheet" href="style.css" />
     <link
@@ -12,18 +11,80 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
   </head>
-  <body class="coming-soon-page">
-    <div class="container">
-      <h1>Coming Soon!</h1>
-      <img
-        src="image/comingsoon1.gif"
-        alt="Coming Soon Animation"
-        class="coming-gif"
-      />
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="topbar">
+      <div class="wrap topbar__wrap">
+        <nav class="topnav" aria-label="Main">
+          <a href="visit-us.html">Visit</a>
+          <a href="book.html">What's happening?</a>
+        </nav>
 
-      <p>We are experiencing lack of funds.</p>
-      <p>Support our GoFundMe page and help us make it a reality.</p>
-      <a href="index.html" class="pill">back to front page</a>
-    </div>
+        <form class="search" role="search" aria-label="Search">
+          <label for="q" class="sr-only">Search</label>
+          <div class="search-box">
+            <input id="q" name="q" type="search" placeholder="Search" />
+            <button class="search-btn" type="submit" aria-label="Search">
+              🔍
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <main id="main">
+      <h1 class="sr-only">Exhibition</h1>
+      <section class="hero">
+        <img
+          class="hero-img"
+          src="images/mike-van-den-bos-jf1EomjlQi0-unsplash.jpg"
+          alt="Museum hall"
+        />
+        <div>
+          <a class="hero-logo" href="index.html" aria-label="Home">
+            <img src="images/tecvaultlogo.png" alt="Tech Vault Museum" />
+          </a>
+        </div>
+      </section>
+
+      <nav class="quick" aria-label="Quick links">
+        <div class="wrap quick-row">
+          <a class="pill pill--sm" href="index.html">Back</a>
+        </div>
+      </nav>
+    </main>
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <section class="visit" id="visit">
+          <div class="wrap visit-inner">
+            <div class="visit-info">
+              <h3>Visit us</h3>
+              <p>7429 Elmwood Drive</p>
+              <p>Dallas, TX 75209</p>
+              <p>
+                <a class="visit-link" href="visit-us.html">Get directions →</a>
+              </p>
+            </div>
+          </div>
+        </section>
+        <nav class="social-links" aria-label="Social">
+          <a href="https://facebook.com/" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a href="https://instagram.com/" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://x.com/" aria-label="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+        </nav>
+        <p>© 2025 Tech Vault Museum</p>
+        <nav aria-label="Footer">
+          <a href="#" class="foot-link">Privacy</a>
+          <a href="#" class="foot-link">Cookies</a>
+          <a href="#" class="foot-link">Accessibility</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
