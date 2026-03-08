@@ -1,6 +1,3 @@
-/* ==================================================
-   Base (MOBILE FIRST, DRY)
-   ================================================== */
 *,
 *::before,
 *::after {
@@ -11,22 +8,26 @@ body {
   margin: 0;
 }
 body {
-  /* Sticky footer layout */
-  min-height: 100svh; /* supports mobile safe area; falls back where unsupported */
+  min-height: 100svh;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
     sans-serif;
   background: var(--brand-bg, #fff3b0);
   color: var(--brand-text, #111);
 }
-/* Let main grow to push footer to the bottom when content is short */
+
 main {
   flex: 1 0 auto;
 }
 
-/* Skip link (accessibility) */
 .skip-link {
   position: absolute;
   left: 8px;
@@ -43,14 +44,12 @@ main {
   outline: 3px solid var(--accent-dark, #e0b800);
 }
 
-/* Strong, consistent focus state */
 :where(a, button, [role="button"], input, select, textarea):focus-visible {
   outline: 3px solid #111;
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -75,9 +74,6 @@ main {
   border: 0;
 }
 
-/* ==================================================
-   Top bar
-   ================================================== */
 .topbar {
   background: var(--accent, #ffd60a);
   border-bottom: 1px solid var(--accent-border, #e0b800);
@@ -99,7 +95,6 @@ main {
   text-decoration: none;
 }
 
-/* Search */
 .search {
   display: flex;
   justify-content: center;
@@ -128,7 +123,6 @@ main {
   cursor: pointer;
 }
 
-/* Social links */
 .social-links {
   display: flex;
   gap: var(--s-2, 12px);
@@ -147,9 +141,6 @@ main {
   color: #000;
 }
 
-/* ==================================================
-   Hero
-   ================================================== */
 .hero {
   position: relative;
 }
@@ -168,7 +159,7 @@ main {
     rgba(0, 0, 0, 0.45)
   );
   pointer-events: none;
-  z-index: 1; /* layer above image, below content */
+  z-index: 1;
 }
 .hero-logo {
   position: absolute;
@@ -197,7 +188,7 @@ main {
   white-space: nowrap;
   z-index: 2;
 }
-/* Page-specific: Science */
+
 .page-science .hero-title {
   bottom: clamp(10vh, 18vh, 22vh);
 }
@@ -214,9 +205,6 @@ main {
   line-height: 1.8;
 }
 
-/* ==================================================
-   Quick links
-   ================================================== */
 .quick {
   background: var(--accent-weak, #f6efc4);
   border-block: 1px solid #f0e08c;
@@ -240,14 +228,14 @@ main {
   transition: all 0.25s ease;
 }
 .pill--sm {
-  padding: 8px 16px; /* smaller height + add horizontal padding */
+  padding: 8px 16px;
   font-size: 0.95rem;
-  display: inline-flex; /* shrink-to-content */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   line-height: 1;
 }
-/* Center the small pill in the grid and avoid full-width stretch */
+
 .quick-row .pill--sm {
   justify-self: center;
   width: auto;
@@ -257,9 +245,6 @@ main {
   color: var(--accent, #ffd60a);
 }
 
-/* ==================================================
-   Cards
-   ================================================== */
 .cards {
   background: var(--accent-weak, #f6efc4);
   padding-block: var(--s-5, 32px);
@@ -295,9 +280,6 @@ main {
   transform: scale(1.03);
 }
 
-/* ==================================================
-   Visit
-   ================================================== */
 .visit {
   background: var(--accent, #ffd60a);
   padding-block: var(--s-4, 24px);
@@ -333,9 +315,6 @@ main {
   border-top: 0;
 }
 
-/* ==================================================
-   Footer
-   ================================================== */
 .footer {
   background: var(--accent, #ffd60a);
   padding-block: var(--s-4, 24px);
@@ -352,28 +331,23 @@ main {
   text-decoration: none;
 }
 
-/* ==================================================
-   VR Section (mobile-first, DRY) 
-   ================================================== */
 .vr {
   background: var(--brand-bg, #fff3b0);
   padding-block: var(--s-5, 32px);
 }
 
-/* Mobil: én kolonne, første p kleber til h2 */
 .vr__content {
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 6px; /* veldig liten vertikal luft */
+  row-gap: 6px;
   column-gap: var(--s-3, 16px);
 }
 .vr__content h2 {
-  margin: 0 0 0.15rem; /* nesten null luft under h2 */
+  margin: 0 0 0.15rem;
   font-size: clamp(22px, 3.8vw, 34px);
   line-height: 1.5;
 }
 .vr__content > p:first-of-type {
-  /* første p rett under h2 */
   margin-top: 0;
 }
 .vr__content p {
@@ -381,7 +355,6 @@ main {
   line-height: 1.6;
 }
 
-/* Bilde */
 .vr__image {
   width: 100%;
   height: auto;
@@ -392,7 +365,6 @@ main {
   object-position: center;
 }
 
-/* Liste */
 .vr__list {
   margin: 0.5rem 0 0;
   padding-left: 1.2rem;
@@ -400,7 +372,6 @@ main {
   gap: 6px;
 }
 
-/* CTA-avsnitt (p som wrapper knappen) */
 .vr__cta {
   margin-top: 0.5rem;
 }
@@ -409,11 +380,10 @@ main {
   font-size: clamp(22px, 4.5vw, 36px);
   margin: 0 auto 0rem;
   color: var(--brand-text, #111);
-  text-align: center; /* center heading to match centered video */
+  text-align: center;
   max-width: 60ch;
 }
 
-/* keep paragraph text scoped to this page */
 .page-test-vr p {
   text-align: center;
   font-weight: 600;
@@ -423,7 +393,6 @@ main {
   line-height: 1.8;
 }
 
-/* stack and center the video wrapper (mobile-first) */
 .page-test-vr .video .wrap {
   display: flex;
   flex-direction: column;
@@ -432,23 +401,18 @@ main {
   width: 100%;
 }
 
-/* neutral on mobile; center on all sizes */
 .page-test-vr .video-align-right {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-/* ==================================================
-   Video (responsivt YouTube-embed)
-   ================================================== */
 .video {
   background: var(--brand-bg, #fff3b0);
   padding-block: var(--s-5, 32px);
   border-block: 1px solid var(--border, #e5e7eb);
 }
 .video-embed {
-  /* Bigger player and responsive */
   width: 100%;
   max-width: min(1280px, 92vw);
   margin-inline: auto;
@@ -468,18 +432,16 @@ main {
   text-align: center;
 }
 
-/* center alignment utility */
 .video-align-right {
   display: flex;
   justify-content: center;
 }
 
-/* YT card grows to fill the embed container */
 .yt-card {
   position: relative;
   display: block;
   width: 100%;
-  max-width: none; /* let parent control sizing */
+  max-width: none;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
   overflow: hidden;
@@ -492,20 +454,24 @@ main {
   object-fit: cover;
   display: block;
   filter: saturate(1.05);
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 }
 .yt-card__play {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: clamp(40px, 8vw, 88px); /* larger play icon */
+  font-size: clamp(40px, 8vw, 88px);
   line-height: 1;
   background: radial-gradient(transparent 40%, rgba(0, 0, 0, 0.35));
   text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
   color: #fff;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  pointer-events: none; /* let clicks pass to the link/card */
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .yt-card:hover img {
@@ -516,14 +482,12 @@ main {
   transform: scale(1.04);
 }
 
-/* Fokus-stil for tastaturbrukere */
 .yt-card:focus-visible {
   outline: 3px solid #111;
   outline-offset: 4px;
   border-radius: 14px;
 }
 
-/* Keep centered layout on larger screens (no right-alignment) */
 @media (min-width: 900px) {
   .video .wrap {
     align-items: center;
@@ -534,9 +498,6 @@ main {
   }
 }
 
-/* ==================================================
-   Info Section
-   ================================================== */
 .info {
   background: var(--brand-bg, #fff);
   padding-block: var(--s-5, 32px);
@@ -579,9 +540,6 @@ main {
   }
 }
 
-/* ==================================================
-   Breakpoints
-   ================================================== */
 @media (min-width: 640px) {
   .topbar__wrap {
     gap: var(--s-3, 16px);
@@ -646,17 +604,16 @@ main {
   }
 }
 
-/* Page-specific: Visit Us - align logo similar to Science */
 .page-visit .hero--static {
   position: relative;
   padding-block: var(--s-3, 16px);
 }
 .page-visit .hero--static .hero-logo {
-  position: static; /* use normal flow inside wrap */
+  position: static;
 }
 .page-visit .hero--static .hero-logo img {
-  height: 100px; /* between mobile and desktop sizes */
-  filter: none; /* no invert on plain background */
+  height: 100px;
+  filter: none;
 }
 @media (min-width: 900px) {
   .page-visit .hero--static .hero-logo img {
@@ -664,9 +621,6 @@ main {
   }
 }
 
-/* ==================================================
-   Debug overlay
-   ================================================== */
 html[data-debug="on"] * {
   outline: 1px dashed rgba(0, 0, 0, 0.25);
 }
