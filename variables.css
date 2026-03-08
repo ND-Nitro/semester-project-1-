@@ -1,9 +1,8 @@
 :root {
-  /* Farger */
   --bg: #fff3b0;
   --text: #111;
-  --accent: #ffd60a; /* gul */
-  --accent-dark: #e0b800; /* mørkere gul */
+  --accent: #ffd60a;
+  --accent-dark: #e0b800;
   --border: #e5e7eb;
   --brand-bg: var(--bg, #fff3b0);
   --brand-text: var(--text, #111);
@@ -13,11 +12,10 @@
   --search-max: 530px;
   --radius-pill: 9999px;
 
-  /* Spacing */
   --s-2: 12px;
   --s-3: 16px;
   --s-4: 24px;
   --s-5: 32px;
-  /* Radius */
+
   --radius: 8px;
 }
